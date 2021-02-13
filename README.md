@@ -1,6 +1,13 @@
 # Express Server with Typescript & Jest
 
+This boilerplate [Express](https://expressjs.com/) project is preconfigured with [Typescript](https://www.typescriptlang.org/), [Jest](https://jestjs.io/en/), and [Prettier](https://prettier.io/). The project structure resembles generated output from [express-generator](https://expressjs.com/en/starter/generator.html) with the `--no-view` option.
+
 ## Getting Started
+
+### Recommendations
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Prettier VS Code extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (for auto formatting)
 
 ### Run the Express server
 
@@ -8,13 +15,19 @@
 npm start
 ```
 
-### Run Tests
+### Run tests
 
 ```
 npm test
 ```
 
-### Development
+### Build to `/dist`
+
+```
+npm run build
+```
+
+## Development
 
 To debug the Express server with auto-restart,
 
