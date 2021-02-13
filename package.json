@@ -12,10 +12,10 @@
     "lint": "tsc --noEmit && eslint '{src,__test__}/**/*.{js,ts,tsx}' --quiet --fix",
     "prestart": "npm run build",
     "start": "node .",
-    "dev:server": "nodemon",
-    "dev:server-debug": "node -r ts-node/register --inspect=5858 src/main.ts",
+    "dev": "nodemon",
+    "dev:debug": "node -r ts-node/register --inspect=5858 src/main.ts",
     "test": "jest",
-    "dev:tdd": "node --inspect=5859 node_modules/.bin/jest --runInBand --watch"
+    "dev:test": "node --inspect=5859 ./node_modules/jest/bin/jest.js --runInBand --watch"
   },
   "husky": {
     "hooks": {
