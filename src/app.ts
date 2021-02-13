@@ -1,25 +1,20 @@
-import * as bodyParser from "body-parser";
-import express from "express";
-import { Routes } from "./routes";
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 
-class App {
-  public app: express.Application;
-  public routePrv: Routes = new Routes();
+import indexRouter from './routes/index';
+import usersRouter from './routes/users';
 
-  constructor() {
-    this.app = express();
-    this.config();
-    this.routePrv.routes(this.app);
-  }
+const app = express();
 
-  private config(): void {
-    // support application/json type post data
-    this.app.use(bodyParser.json());
-    // support application/x-www-form-urlencoded post data
-    this.app.use(bodyParser.urlencoded({ extended: false }));
-    // responde with indented JSON string
-    this.app.set("json spaces", 2);
-  }
-}
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-export default new App().app;
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+export default app;
